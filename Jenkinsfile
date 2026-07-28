@@ -2,19 +2,12 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "YOUR_DOCKERHUB_USERNAME/python-app"
+        IMAGE_NAME = "pawan82353/python-app"
         IMAGE_TAG = "latest"
         DOCKER_CREDENTIALS = "dockerhub-credentials"
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/kumarpawan82353/my-python-app.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
